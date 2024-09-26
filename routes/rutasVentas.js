@@ -1,28 +1,28 @@
 const rutas = require("express").Router();
-const { mostrarProductos, busXId, deleteProd, newProd } = require("../bd/ventasBD");
+const { mostrarVentas, busXId, cancelSale, newSale } = require("../bd/ventasBD");
 
 // Obtener todos los productos
 rutas.get("/", async (req, res) => {
-    const productosValidos = await mostrarProductos();
-    res.json(productosValidos); // Respuesta de productos
+    const ventasValidas = await mostrarVentas();
+    res.json(ventasValidas); // Respuesta de productos
 });
 
 // Buscar producto por ID
 rutas.get("/buscarPorId/:id", async (req, res) => {
-    const productoValido = await busXId(req.params.id);
-    res.json(productoValido);
+    const ventaValida = await busXId(req.params.id);
+    res.json(ventaValida);
 });
 
 // Borrar producto por ID
-rutas.delete("/borrarProducto/:id", async (req, res) => {
-    const productoBorrado = await deleteProd(req.params.id);
-    res.json(productoBorrado);
+rutas.delete("/cancelarVenta/:id", async (req, res) => {
+    const ventaCancelada = await cancelSale(req.params.id);
+    res.json(ventaCancelada);
 });
 
 // Crear un nuevo producto
-rutas.post("/nuevoProducto", async (req, res) => {
-    const productoValido = await newProd(req.body);
-    res.json(productoValido);
+rutas.post("/nuevaVenta", async (req, res) => {
+    const ventaValida = await newSale(req.body);
+    res.json(ventaValida);
 });
 
 module.exports = rutas;

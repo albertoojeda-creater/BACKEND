@@ -1,8 +1,9 @@
-class Producto {
+class Venta {
     constructor(data) {
         this.id = data.id;             // ID del producto
-        this.nombre = data.nombre;     // Nombre del producto
-        this.precio = data.precio;     // Precio del producto (string)
+        this.idUsuario = data.idUsuario;     // Nombre del producto
+        this.idProducto = data.idProducto;     // Precio del producto (string)
+        this.fec_hora = data.fec_hora;     // Precio del producto (string)
         this.cantidad = data.cantidad; // Cantidad del producto (string)
     }
 
@@ -10,12 +11,16 @@ class Producto {
         this._id = id; // Almacena el ID del producto
     }
 
-    set nombre(nombre) {
-        this._nombre = nombre; // Almacena el nombre
+    set idUsuario(idUsuario) {
+        this._idUsuario = idUsuario; // Almacena el nombre
     }
 
-    set precio(precio) {
-        this._precio = precio; // Almacena el precio
+    set idProducto(idProducto) {
+        this._idProducto = idProducto; // Almacena el precio
+    }
+
+    set fec_hora(fec_hora) {
+        this._fec_hora = fec_hora; // Almacena la cantidad
     }
 
     set cantidad(cantidad) {
@@ -26,29 +31,35 @@ class Producto {
         return this._id; // Retorna el ID del producto
     }
 
-    get nombre() {
-        return this._nombre; // Retorna el nombre del producto
+    get idUsuario() {
+        return this._idUsuario; // Retorna el nombre del producto
     }
 
-    get precio() {
-        return this._precio; // Retorna el precio del producto
+    get idProducto() {
+        return this._idProducto; // Retorna el precio del producto
+    }
+
+    get fec_hora() {
+        return this._fec_hora; // Retorna el precio del producto
     }
 
     get cantidad() {
         return this._cantidad; // Retorna la cantidad del producto
     }
 
-    get getProducto() {
+    get getVenta() {
         const conid = {
             id: this.id,
-            nombre: this.nombre,
-            precio: this.precio,
-            cantidad: this.cantidad,
+            idUsuario: this.idUsuario,
+            idProducto: this.idProducto,
+            fec_hora: this.fec_hora,
+            cantidad: this.cantidad
         };
         const sinid = {
-            nombre: this.nombre,
-            precio: this.precio,
-            cantidad: this.cantidad,
+            idUsuario: this.idUsuario,
+            idProducto: this.idProducto,
+            fec_hora: this.fec_hora,
+            cantidad: this.cantidad
         };
         if (this.id === undefined) {
             return sinid; // Retorna el producto sin ID
@@ -58,4 +69,4 @@ class Producto {
     }
 }
 
-module.exports = Producto; // Exporta la clase Producto
+module.exports = Venta; // Exporta la clase Producto
