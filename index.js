@@ -1,6 +1,7 @@
 const express = require("express");
 const usuariosRutas = require("./routes/rutasUsuarios");
 const productosRutas = require("./routes/rutasProductos");
+const ventasRutas = require("./routes/rutasVentas");
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 // Cargar rutas
 app.use("/", usuariosRutas);
 app.use("/productos", productosRutas); // Cargar rutas de productos
+app.use("/ventas", ventasRutas);
 
 // Configuración del puerto
 const port = process.env.PORT || 3000;
