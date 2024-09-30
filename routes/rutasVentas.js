@@ -14,7 +14,7 @@ rutas.get("/buscarPorId/:id", async (req, res) => {
 });
 
 // Borrar producto por ID
-rutas.delete("/cancelarVenta/:id", async (req, res) => {
+rutas.patch("/cancelarVenta/:id", async (req, res) => {
     const ventaCancelada = await cancelSale(req.params.id);
     res.json(ventaCancelada);
 });
