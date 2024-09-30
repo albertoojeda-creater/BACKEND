@@ -10,7 +10,8 @@ function validarDatos(venta) {
     return venta.idUsuario !== undefined && 
            venta.idProducto !== undefined && 
            venta.fec_hora !== undefined && 
-           venta.cantidad !== undefined;
+           venta.cantidad !== undefined &&
+           venta.estado !== undefined;
 }
 
 // Mostrar todas las ventas
